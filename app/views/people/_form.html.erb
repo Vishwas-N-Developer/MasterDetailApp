@@ -1,47 +1,37 @@
 <%= form_with model: person do |form| %>
-    <% if person.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
   
-        <ul>
-          <% person.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-        
-      </div>
-    <% end %>
+  <%= render partial: 'error', locals: {person: person} %>
 
-    <%= form.fields_for :detail, id: "people_details" do |detail_form| %>
+  <%= form.fields_for :detail, id: "people_details" do |detail_form| %>
 
-      <div class="field">
-        <%= detail_form.label :title %>
-        <%= detail_form.text_field :title %>
+    <div class="field">
+      <%= detail_form.label :title %>
+      <%= detail_form.text_field :title %>
 
-        <%= form.label :name %>
-        <%= form.text_field :name %>
-      </div>
-
-      <div class="field">
-        <%= detail_form.label :email %>
-        <%= detail_form.text_field :email %>
-      </div>
-
-      <div class="field">
-      <%= detail_form.label :age %>
-      <%= detail_form.text_field :age %>
-      </div>
-
-      <div class="field">
-      <%= detail_form.label :phone %>
-      <%= detail_form.text_field :phone %>
-      </div>
-
-    <% end %>
-  
-    <div class="actions">
-      <%= form.submit %>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
     </div>
+
+    <div class="field">
+      <%= detail_form.label :email %>
+      <%= detail_form.text_field :email %>
+    </div>
+
+    <div class="field">
+    <%= detail_form.label :age %>
+    <%= detail_form.text_field :age %>
+    </div>
+
+    <div class="field">
+    <%= detail_form.label :phone %>
+    <%= detail_form.text_field :phone %>
+    </div>
+
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
   <% end %>
 
   <%= button_to 'Cancel', people_path, method: :get %>

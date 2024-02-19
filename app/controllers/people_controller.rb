@@ -17,10 +17,11 @@ class PeopleController < ApplicationController
     @person = Person.new(person_params)
     respond_to do |format|
       if @person.save
-        format.turbo_stream {}
+        format.turbo_stream {render turbo_stream: turbo_stream.replace('create_person_form', partial: "create_link")}
         format.html { redirect_to people_path, notice: 'Person created.' }
       else
-        format.html { redirect_to :new, status: :unprocessable_entity }
+        format.turbo_stream {render turbo_stream: turbo_stream.replace('person_form_error_', partial: 'error', locals: {person: @person})}
+        format.html { redirect_to new_person_path, status: :unprocessable_entity }
       end
     end
   end
@@ -32,7 +33,8 @@ class PeopleController < ApplicationController
         format.html { redirect_to people_path }
         format.turbo_stream { render turbo_stream: turbo_stream.replace("person_#{@person.id}", partial: 'person', locals: { person: @person }) }
       else
-        format.html { redirect_to edit_person_path }
+        format.turbo_stream {render turbo_stream: turbo_stream.replace("person_form_error_#{@person.id}", partial: 'error', locals: {person: @person})}
+        format.html { redirect_to edit_person_path, status: :unprocessable_entity }
       end
     end
   end

@@ -2,7 +2,7 @@
 
 
 <%= turbo_frame_tag "create_person_form" do %>
-    <%= link_to 'Create new person', new_person_path, class: 'btn btn-dark' %>
+    <%= render partial: 'create_link' %>
 <% end %>
 
 <br>

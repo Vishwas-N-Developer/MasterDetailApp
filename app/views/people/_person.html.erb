@@ -9,7 +9,7 @@
 
         <div class='mt-2 d-flex'>
             <%= link_to 'Edit', edit_person_path(person), style: 'margin-left: 5px' %>
-            <%= link_to 'Delete', person_path(person), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, style: 'margin-left: 5px' %>
+            <%= link_to 'Delete', person_path(person), data: {turbo_method: :delete}, style: 'margin-left: 5px' %>
         </div>
     </div>
 <% end %>

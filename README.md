@@ -1,24 +1,54 @@
-# README
+# MasterDetailApp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Prerequisites
 
-Things you may want to cover:
+Before you begin, ensure you have met the following requirements:
 
-* Ruby version
+- Ruby version 3.3.0
+- Rails version 7.1.3
+- Bundler installed
 
-* System dependencies
+## Installation
 
-* Configuration
+Follow these steps to set up and run the project locally:
 
-* Database creation
+1. Clone the repository:
 
-* Database initialization
+    ```bash
+    git clone https://github.com/Vishwas-N-Developer/MasterDetailApp.git
+    ```
 
-* How to run the test suite
+2. Navigate to the project directory:
 
-* Services (job queues, cache servers, search engines, etc.)
+    ```bash
+    cd MasterDetailApp
+    ```
 
-* Deployment instructions
+3. Install dependencies:
 
-* ...
+    ```bash
+    bundle install
+    ```
+
+4. Set up the database:
+
+    ```bash
+    rails db:setup
+    ```
+
+5. Seed the database:
+
+    ```bash
+    rails db:seed
+    ```
+
+## Running the Server
+
+To start the Rails server, run the following command:
+
+    rails server
+
+## Running Tests
+
+    bundle exec rspec
+    
