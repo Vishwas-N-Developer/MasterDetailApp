@@ -1,0 +1,9 @@
+<h1>Edit Person</h1>
+
+<h1>Edit Person</h1>
+    
+<%= turbo_frame_tag "person_#{@person.id}" do %>
+    <div style='border-style: ridge; padding: 20px;', class='mt-2'>
+        <%= render partial: 'form', locals: {person: @person}  %>
+    </div>
+<% end %>

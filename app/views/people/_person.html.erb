@@ -1,0 +1,15 @@
+
+<%= turbo_frame_tag "person_#{person.id}" do %>
+    <div style='border-style: ridge; padding: 20px;', class='mt-2'>
+       
+        <b><%= person.detail.title %></b>&nbsp;<b><%= person.name %></b><br>
+        <b><%= person.detail.email %></b><br>
+        <b><%= person.detail.age %></b><br>
+        <b><%= person.detail.phone %></b><br>
+
+        <div class='mt-2 d-flex'>
+            <%= link_to 'Edit', edit_person_path(person), style: 'margin-left: 5px' %>
+            <%= link_to 'Delete', person_path(person), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, style: 'margin-left: 5px' %>
+        </div>
+    </div>
+<% end %>

@@ -1,0 +1,20 @@
+<h1>People</h1>
+
+
+<%= turbo_frame_tag "create_person_form" do %>
+    <%= link_to 'Create new person', new_person_path, class: 'btn btn-dark' %>
+<% end %>
+
+<br>
+
+<h2 class='mt-3'>People</h2>
+
+<%= turbo_stream_from 'people' %>
+
+<%= turbo_frame_tag "people" do %>
+    <% if @people.any? %>
+        <%= render partial: 'person', collection: @people %>
+    <% else %>
+        <p>No people available</p>
+    <% end %>
+<% end %>
