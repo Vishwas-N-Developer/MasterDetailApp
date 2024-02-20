@@ -1,9 +1,6 @@
 <h1>People</h1>
 
-
-<%= turbo_frame_tag "create_person_form" do %>
-    <%= render partial: 'create_link' %>
-<% end %>
+<%= render partial: 'create_link' %>
 
 <br>
 
@@ -12,9 +9,9 @@
 <%= turbo_stream_from 'people' %>
 
 <%= turbo_frame_tag "people" do %>
-    <% if @people.any? %>
-        <%= render partial: 'person', collection: @people %>
-    <% else %>
-        <p>No people available</p>
-    <% end %>
+  <% if @people.any? %>
+    <%= render partial: 'person', collection: @people %>
+  <% else %>
+    <p>No people available</p>
+  <% end %>
 <% end %>

@@ -65,15 +65,17 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
+  # Database cleaner configuration
   config.before(:suite) { DatabaseCleaner.clean_with(:truncation) }
   config.before(:each) { DatabaseCleaner.strategy = :transaction }
   config.before(:each, js: true) { DatabaseCleaner.strategy = :truncation }
   config.before(:each) { DatabaseCleaner.start }
   config.before(:each) { DatabaseCleaner.clean }
+
+   # Include FactoryBot syntax methods
   config.include FactoryBot::Syntax::Methods
 
-
-  Capybara.default_driver = :selenium_chrome
-  # Capybara.javascript_driver = :selenium_chrome
-
+  # Set Capybara driver to Selenium
+  Capybara.default_driver = :selenium
+  
 end
